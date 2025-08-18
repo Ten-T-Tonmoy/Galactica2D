@@ -12,6 +12,9 @@ public class WaveConfig : ScriptableObject
     [SerializeField] Transform pathPrefabs;
     [SerializeField] float movespeed = 5f;
     [SerializeField] float timeGapOfSpawning = 1f;
+    // to add randomness of spawn
+    [SerializeField] float spawnTimeVariance = 0f;
+    [SerializeField] float minimumSpawnTime = 0.2f;
 
 
     public int GetEnemyNumber()
@@ -46,4 +49,13 @@ public class WaveConfig : ScriptableObject
         return movespeed;
     }
 
+
+    public float GetRandomSpawnTime()
+    {
+        float spawnTime = Random.Range(
+            timeGapOfSpawning - spawnTimeVariance,
+            timeGapOfSpawning + spawnTimeVariance
+            );
+        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
+    }
 }

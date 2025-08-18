@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c46131518de4914194cd1ee217aed6f, type: 3}
-  m_Name: new WaveConfig
+  m_Name: enemy1
   m_EditorClassIdentifier: 
   enemyPrefabs: []
-  pathPrefabs: {fileID: 2264602634668924983, guid: d900e2fa23b72f7489ff6e1d92340b9b, type: 3}
+  pathPrefabs: {fileID: 5315338510810125296, guid: 208519e4868506944857414efb96aa96, type: 3}
   movespeed: 5
   timeGapOfSpawning: 1

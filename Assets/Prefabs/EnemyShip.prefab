@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949173528689014996}
+  - component: {fileID: 6240241369617104305}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -119,3 +120,16 @@ Transform:
   - {fileID: 5263531440619706584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6240241369617104305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247419503679611775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566400efd645a3441ad48683889eaeb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaveConfig: {fileID: 11400000, guid: 50cf653a3e49ed44ab789f91a5f3ba8d, type: 2}

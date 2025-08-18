@@ -4,12 +4,18 @@ using UnityEngine;
 public class EnemyPathFinding : MonoBehaviour
 {
 
-    [SerializeField] WaveConfig currentWaveConfig;
+    EnemyPathFinding enemeySpawner;
+    WaveConfig currentWaveConfig;
     List<Transform> waypoints;
     int waypointIdx = 0;
 
+    private void Awake()
+    {
+        enemeySpawner = GetComponent<EnemyPathFinding>();
+    }
     void Start()
     {
+        currentWaveConfig = enemySpawner.getC
         waypoints = currentWaveConfig.GetWaypoints();
         transform.position = waypoints[waypointIdx].position;
 
@@ -33,8 +39,9 @@ public class EnemyPathFinding : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
 
             //had to make vector3 just to compare with transform pos
-            if (transform.position == targetPosition)
+            if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
             {
+                //dont tf make float == comparisons it sucks
                 waypointIdx++;
             }
 
