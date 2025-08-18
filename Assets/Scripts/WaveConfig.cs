@@ -22,7 +22,7 @@ public class WaveConfig : ScriptableObject
         return enemyPrefabs.Count; //length of array?
     }
 
-    public GameObject GetEnemyPrefabs(int index)
+    public GameObject GetEnemyPrefab(int index)
     {
         return enemyPrefabs[index];
     }

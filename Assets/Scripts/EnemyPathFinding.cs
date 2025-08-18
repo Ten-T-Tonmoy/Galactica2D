@@ -4,18 +4,19 @@ using UnityEngine;
 public class EnemyPathFinding : MonoBehaviour
 {
 
-    EnemyPathFinding enemeySpawner;
+    EnemySpawner enemeySpawner;
     WaveConfig currentWaveConfig;
     List<Transform> waypoints;
     int waypointIdx = 0;
 
     private void Awake()
     {
-        enemeySpawner = GetComponent<EnemyPathFinding>();
+        enemeySpawner = FindFirstObjectByType<EnemySpawner>();
     }
     void Start()
     {
-        currentWaveConfig = enemySpawner.getC
+        //ps the naming
+        currentWaveConfig = enemeySpawner.GetCurentWave();
         waypoints = currentWaveConfig.GetWaypoints();
         transform.position = waypoints[waypointIdx].position;
 

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6949173528689014996}
   - component: {fileID: 6240241369617104305}
   m_Layer: 0
-  m_Name: EnemyShip
+  m_Name: EnemyShip 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,4 +132,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566400efd645a3441ad48683889eaeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaveConfig: {fileID: 11400000, guid: 50cf653a3e49ed44ab789f91a5f3ba8d, type: 2}
