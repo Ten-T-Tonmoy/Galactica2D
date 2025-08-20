@@ -12,7 +12,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] float firingRateVariance = 0.1f;
     [SerializeField] float minimumFiringRate = 0.1f;
 
-    [SerializeField] bool useAutomateShooting;
+    [SerializeField] public bool useAutomateShooting;
 
     // hiding or auto show in serialized?
     [HideInInspector] public bool isFiring; //hide?

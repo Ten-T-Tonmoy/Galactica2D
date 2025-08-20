@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6603048276264876267}
   - component: {fileID: -2202403270133573933}
   - component: {fileID: -4870020957186185063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyShip2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  isPlayer: 0
+  score: 0
+  hitEffectExplosion: {fileID: 4790736647879133099, guid: 104dc975c3faa2a4da3ab086d05bb924, type: 3}
 --- !u!114 &-4870020957186185063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +157,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3732324677962542400, guid: 73bf25879e072564bae56e17ed6e8532, type: 3}
   projectileSpeed: 10
   projectileLifeTime: 5
-  baseFiringRate: 0.7
+  baseFiringRate: 0.5
   firingRateVariance: 0.1
   minimumFiringRate: 0.1
   useAutomateShooting: 1
@@ -169,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8063821484986687276}
   - component: {fileID: 8686619498331361284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemyGreen1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -79,7 +79,7 @@ public class PlayerShip : MonoBehaviour
             //Debug.Log("fire button pressed");
             shooter.isFiring = true;
         }
-        else
+        else if (shooter != null && shooter.useAutomateShooting != true)
         {
             shooter.isFiring = false;
 
