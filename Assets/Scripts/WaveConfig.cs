@@ -1,6 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * its basically about wave of enemies
+ * => input these
+ *  - enemy prefabs
+ *  - path single to follow
+ *  - random spawning time
+ *  - 
+ * **/
+
 [CreateAssetMenu(fileName = "new WaveConfig", menuName = "WaveConfig")]
 //scriptable so it wont get attached!
 //shortcut to creaing .assets
@@ -9,7 +18,7 @@ public class WaveConfig : ScriptableObject
     [SerializeField] List<GameObject> enemyPrefabs;
     // creating empty just gives out transform!
     // has position,localScale,rotation
-    [SerializeField] Transform pathPrefabs;
+    [SerializeField] Transform pathPrefab;// fuck its just a single path
     [SerializeField] float movespeed = 5f;
     [SerializeField] float timeGapOfSpawning = 1f;
     // to add randomness of spawn
@@ -29,7 +38,7 @@ public class WaveConfig : ScriptableObject
 
     public Transform GetStartingPointOfPath()
     {
-        return pathPrefabs.GetChild(0);
+        return pathPrefab.GetChild(0);
     }
 
     public List<Transform> GetWaypoints()
@@ -37,7 +46,7 @@ public class WaveConfig : ScriptableObject
         List<Transform> waypoints = new List<Transform>();
 
         // iterate over childs of a object
-        foreach (Transform child in pathPrefabs)
+        foreach (Transform child in pathPrefab)
         {
             waypoints.Add(child);
         }

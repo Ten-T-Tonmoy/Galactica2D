@@ -22,10 +22,14 @@ public class PlayerShip : MonoBehaviour
     Vector2 bottomLeft; // left pos
     Vector2 topRight;
 
+    Shooter shooter;
+
     //called even if disabled
     private void Awake()
     {
         InitBounds();
+        shooter = GetComponent<Shooter>();
+
     }
     void Update()
     {
@@ -62,6 +66,22 @@ public class PlayerShip : MonoBehaviour
         bottomLeft = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
         //for maximum x and y coordinates
         topRight = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
+
+    }
+
+    void OnFire()
+    {
+        //takes a input value sends true if pressed else false
+        //when any bullet is instantiated
+        if (shooter != null && Input.GetButton("Fire1"))
+        {
+            shooter.isFiring = true;
+        }
+        else
+        {
+            shooter.isFiring = false;
+
+        }
 
     }
 }
