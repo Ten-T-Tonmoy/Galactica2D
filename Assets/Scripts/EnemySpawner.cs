@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
                     // just pass parent transForm auto happens
                     Instantiate(currentWave.GetEnemyPrefab(i),
                                 currentWave.GetStartingPointOfPath().position,
-                                Quaternion.identity, transform);
+                                Quaternion.Euler(0, 0, 180), transform);
                     //transform is always unique.. in this case its of this gameObj
                     yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
                 }

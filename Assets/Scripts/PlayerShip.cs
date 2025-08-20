@@ -37,6 +37,7 @@ public class PlayerShip : MonoBehaviour
         rawInput.y = Input.GetAxis("Vertical");
 
         Move();
+        OnFire();
 
 
 
@@ -75,6 +76,7 @@ public class PlayerShip : MonoBehaviour
         //when any bullet is instantiated
         if (shooter != null && Input.GetButton("Fire1"))
         {
+            //Debug.Log("fire button pressed");
             shooter.isFiring = true;
         }
         else

@@ -6,11 +6,16 @@ public class Shooter : MonoBehaviour
     [Header("General")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileLifeTime = 5f;
+    [SerializeField] float projectileLifeTime = 2f;
+    //for firing randomness
     [SerializeField] float baseFiringRate = 0.2f;
+    [SerializeField] float firingRateVariance = 0.1f;
+    [SerializeField] float minimumFiringRate = 0.1f;
 
+    [SerializeField] bool useAutomateShooting;
 
-    public bool isFiring; //hide?
+    // hiding or auto show in serialized?
+    [HideInInspector] public bool isFiring; //hide?
 
     Coroutine firingCoroutine;
 
@@ -20,6 +25,10 @@ public class Shooter : MonoBehaviour
     }
     void Start()
     {
+        if (useAutomateShooting)
+        {
+            isFiring = true;
+        }
 
     }
     void Update()
@@ -29,10 +38,10 @@ public class Shooter : MonoBehaviour
 
     void Fire()
     {
-        if (isFiring && firingCoroutine != null)
+        if (isFiring && firingCoroutine == null)
         {
             //takes IEumerator method as argument
-            Coroutine firingCoroutine = StartCoroutine(FireContiniously());
+            firingCoroutine = StartCoroutine(FireContiniously());
         }
         else if (isFiring == false && firingCoroutine != null)
         {
@@ -54,8 +63,16 @@ public class Shooter : MonoBehaviour
             if (bulletRb != null)
             {
                 bulletRb.linearVelocity = transform.up * projectileSpeed;
+                //Debug.Log($"Velocity set: {bulletRb.linearVelocity}");
             }
-            float timeGapForNextProjectile = 0f;
+
+            Destroy(bulletInstance, projectileLifeTime);
+
+            float timeGapForNextProjectile = Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
+
+            timeGapForNextProjectile = Mathf.Clamp(timeGapForNextProjectile,
+                minimumFiringRate, float.MaxValue);
+            //basically sayin dont clamp upperbound at all!
 
 
             yield return new WaitForSeconds(timeGapForNextProjectile);
